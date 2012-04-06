@@ -10,14 +10,14 @@ EXAMPLES
 
 The Different applications would have to be installed va gems or local, it is the config.ru that performs the top level routing before sinatra sees the app.
 
-  require 'bundler/setup'
-  Bundler.require(:default)
+    require 'bundler/setup'
+    Bundler.require(:default)
 
-  require File.dirname(__FILE__) + "/lib/app.rb"
+    require File.dirname(__FILE__) + "/lib/app.rb"
 
-  map "/other" do
-    run ModularSinatraApps::App
-  end
+    map "/other" do
+      run ModularSinatraApps::App
+    end
 
 In this sample app /other triggers the '/' route and /other/bye triggers the /bye route.
 

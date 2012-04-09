@@ -59,11 +59,11 @@ module ModularSinatraApps
     end
 
     get '/' do
-      'Hello'
+      'Application1 Hello'
     end
     
-    get '/bye' do
-      'Bye'
+    get '/whichapp' do
+      'Application1 /whichapp'
     end
 
     ## start the server if ruby file executed directly

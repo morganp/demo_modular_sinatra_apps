@@ -4,8 +4,6 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/models/*.rb'].each {|file| require file }
 
-require_relative 'hello_app'
-
 module ModularSinatraApps
   VERSION = '0.0.1'
   
@@ -17,11 +15,6 @@ module ModularSinatraApps
     configure :development do
       puts "Development"
       set :analytics_ena, false
-
-      #ActiveRecord::Base.establish_connection(
-      #  :adapter   => 'sqlite3',
-      #  :database  => './db/devel.db'
-      #)
     end
 
     configure :test do
@@ -30,23 +23,6 @@ module ModularSinatraApps
 
     configure :production do
       set :analytics_ena, true
-
-      db = ENV["DATABASE_URL"]
-      db ||= '' # Making it safe for non heroku deployment
-      if db.match(/postgres:\/\/(.*):(.*)@(.*)\/(.*)/) 
-        username = $1
-        password = $2
-        hostname = $3
-        database = $4
-
-        #ActiveRecord::Base.establish_connection(
-        #  :adapter  => 'postgresql',
-        #  :host     => hostname,
-        #  :username => username,
-        #  :password => password,
-        #  :database => database
-        #)
-      end
     end
 
 

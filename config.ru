@@ -1,14 +1,14 @@
-
-#require 'rubygems'
-#require './lib/app'
-#run ModularSinatraApps::App
-
 require 'bundler/setup'
 Bundler.require(:default)
 
 require File.dirname(__FILE__) + "/lib/app.rb"
+require File.dirname(__FILE__) + "/lib/app2.rb"
 
-map "/other" do
-	run ModularSinatraApps::App
+#Default route (if no others match)
+map "/" do
+	run ModularSinatraApps2::App
 end
 
+map "/app1" do
+	run ModularSinatraApps::App
+end
